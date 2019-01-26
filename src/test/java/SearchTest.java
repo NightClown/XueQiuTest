@@ -2,9 +2,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import page.LoginPage;
 import page.MainPage;
-import page.ProfilePage;
 import page.SearchPage;
 
 import java.util.ArrayList;
@@ -25,10 +23,11 @@ public class SearchTest {
     }
     @ParameterizedTest
     @CsvSource({
-            "pdd, 拼多多",
+            "jd, 京东",
             "alibaba, 阿里巴巴",
-            "sogo, 搜狗"
+            "gldq, 格力电器"
     })
+
     void 搜索测试(String keyword, String name){
         String content=searchPage.search(keyword).getAll().get(0);
         assertThat(content, equalTo(name));
